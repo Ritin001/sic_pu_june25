@@ -5,7 +5,7 @@ emp_id=input("Enter your employee id")
 basic_monthly_salary=int(input("Enter your basic monthly salary"))
 special_allowance=int(input("Enter your special allowance"))
 bonus_percentage=int(input("Enter your bonus percentage"))
-#calullation
+#calculation
 gross_monthly_salary=basic_monthly_salary+special_allowance
 bonus=bonus_percentage/100 * gross_monthly_salary
 annual_gross_salary=12 * gross_monthly_salary + bonus

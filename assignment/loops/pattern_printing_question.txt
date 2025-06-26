@@ -1,0 +1,9 @@
+7. Print the following shapes by accepting number of lines
+A. Right Angled Triangle
+B. Equi lateral Triangle
+C. Hollow Square
+D. howllow Rhombus
+E. Pascal's Triangle
+F. X shape
+G. X shape inside hollow Square
+H. Benzene Ring (C6H6) Hexagon
