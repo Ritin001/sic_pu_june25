@@ -53,7 +53,33 @@ print()
 
 
 
+#pascal triangle
+num=num-1
+temp_list=[]
+temp_list2=[]
+print("  "*(num+1) + "  1")
+for i in range(num):
+    temp_list2=[]
+    print("  "* (num-i),end="")
+    print("  1","",end="")
+    temp_list2.append(1)
+    for j in temp_list:
+        print(f"{j:3d}", end=" ")
+        temp_list2.append(j)
+    print("  1","",end="")
+    temp_list2.append(1)
+    temp_list=[]
+    r1=(len(temp_list2))-1
+    for j in range (r1):
+        temp_num=temp_list2[j] + temp_list2[j+1]
+        temp_list.append(temp_num)
+        temp_num=0
+    print()
+print()
+print()   
 
+    
+num=num+1
 
 #x shape
 for i in range(num):
@@ -97,7 +123,7 @@ for i in range(0,n2+1):
                 elif j==n2-i:
                     print("/",end="")
                 else:
-                    print("\\",end="")
+                    print("\\\\",end="")
             else:
                 print(" ",end="")
         else :
@@ -105,7 +131,7 @@ for i in range(0,n2+1):
     print()
 #for middle part
 for i in range(n2-1):
-    print("|"+" "* (n-2)+"|")
+    print("||"+" "* (n-2)+"|")
 # second half part
 for i in range(0,n2+1):
     for j in range(0,n):
@@ -116,7 +142,7 @@ for i in range(0,n2+1):
                 elif j==i :
                     print("\\",end="")
                 else:
-                    print("/",end="")
+                    print("//",end="")
             else:
                 print(" ",end="")
         else:
