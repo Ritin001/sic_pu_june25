@@ -1,0 +1,9 @@
+1. Find smallest and biggest elements in an list of n numbers.
+2. Find the frequency an element in a list of n elements.
+3. Remove the duplicates in a list of size n
+**4. Given a number, find very next possible bigger number that has all the digits of the given number.
+5. Accpet a number from the user (4 digit number where a digit can repeat at most 2 times )and print the coutn of recursions reqired to arrive at Karpekar's Constant.
+Recursive Problems:
+1. Find Factorial of a number
+2. Print N Fibo terms with 1 and 2 as 1st 2 terms.
+3. Find sum of list elements

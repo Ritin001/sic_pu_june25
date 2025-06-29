@@ -71,3 +71,30 @@ for i in range(m):
     den=den+2
 print(sum)
 
+
+
+
+
+
+
+# sum of even placed digits in a number
+dig=input("Enter a number to get the sum of even placed digits: ")
+sum_even = 0
+for i in range(1,len(dig)+1):
+    if i % 2 == 0:  # even index
+        sum_even += int(dig[i-1])
+print("The sum of even placed digits in the number is:", sum_even)
+
+
+
+
+
+
+
+# sum of odd placed digits in a number
+dig=input("Enter a number to get the sum of even placed digits: ")
+sum_odd = 0
+for i in range(1,len(dig)+1):
+    if i % 2 != 0:  # even index
+        sum_odd += int(dig[i-1])
+print("The sum of odd placed digits in the number is:", sum_odd)

@@ -4,3 +4,6 @@
 4. Print the Prime numbers in decreasing order between m and n (m < n)
 5. Find the Nth Fibo (HemaChandra) term. Assume 1st 2 terms are 1 and 2
 6. Find sum of the series n - n2/3 + n4/5 - n8/7 .... m terms (1<=n<=4 and 2<=m<=10)
+
+8. Find sum of the Even placed digits in the given number.
+9. Find sum of the Odd placed Even digits in the given number.
