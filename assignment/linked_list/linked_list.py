@@ -57,6 +57,23 @@ class LinkedList:
                 self.size -= 1
                 return
             current_node = current_node.next 
+    def delete_index(self, index):
+        start_node_count = 1
+        current_node = self.head
+        while current_node != None:
+            if start_node_count == index-1:
+                current_node.next = current_node.next.next
+                self.size -= 1
+                return
+            current_node = current_node.next
+            start_node_count += 1
+    def reverse_traverse(self, node):
+        
+        if node is None:
+            return
+        self.reverse_traverse(node.next)
+        print(node.data,end = " ")
+    
             
 LinkedList = LinkedList()
 LinkedList.insert_head(10)
@@ -65,3 +82,4 @@ LinkedList.insert_tail(30)
 LinkedList.insert_at_index(2, 25)
 LinkedList.delete_tail()
 LinkedList.traverse_list()
+LinkedList.reverse_traverse(LinkedList.head)
