@@ -73,12 +73,12 @@ def print_all_employees():
         print(f"Failed to fetch employees: {e}")
         disconnectDB(connection)
 def print_data_employees():
-    a=int(input("Enter the number of employees to fetch: "))
+    id=int(input("Enter the number of employees to fetch: "))
     query = "SELECT * FROM employees WHERE id = %s"
     connection = connectDb()
     try:
         cursor = connection.cursor()
-        cursor.execute(query, (a,))
+        cursor.execute(query, (id,))
         rows = cursor.fetchall()
         for row in rows:
             print(row)

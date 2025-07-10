@@ -57,6 +57,7 @@ class LinkedList:
                 self.size -= 1
                 return
             current_node = current_node.next 
+    
     def delete_index(self, index):
         start_node_count = 1
         current_node = self.head
@@ -67,6 +68,7 @@ class LinkedList:
                 return
             current_node = current_node.next
             start_node_count += 1
+    
     def reverse_traverse(self, node):
         
         if node is None:
