@@ -1,9 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
-# Path to cleaned data
-CLEANED_DATA_PATH = r"C:\learning\sic_pu_june25\Hackathon\data\clean_data.csv"
+# Use relative path to load cleaned CSV
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CLEANED_DATA_PATH = os.path.join(BASE_DIR, '..', 'data', 'clean_data.csv')
 
 # Prices for each sweet item
 PRICE_DICT = {
@@ -40,15 +42,15 @@ def calculate_revenue(row):
 def plot_total_money_vs_day():
     df = pd.read_csv(CLEANED_DATA_PATH)
 
-    # Calculate revenue for each row
+    # Calculate revenue per row
     df['revenue'] = df.apply(calculate_revenue, axis=1)
 
-    # Group by day and sum revenue
+    # Group by day
     grouped = df.groupby('day of week')['revenue'].sum().reindex([
         'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'
     ])
 
-    # Create the plot
+    # Plot
     plt.figure(figsize=(10, 6))
     sns.barplot(x=grouped.index, y=grouped.values, palette='pink')
     plt.title('Total Revenue by Day of Week (₹)', fontsize=14)
@@ -57,14 +59,14 @@ def plot_total_money_vs_day():
     plt.tight_layout()
     fig = plt.gcf()
 
-    # Generate insight
+    # Insight generation
     max_day = grouped.idxmax()
     max_value = grouped.max()
-    insight = f"The highest revenue was on {max_day} with ₹{max_value:,.0f}."
+    insight = f"🧾 Insight: The highest revenue was on {max_day} with ₹{max_value:,.0f}."
 
     return fig, insight
 
-# For standalone testing
+# For testing directly
 if __name__ == "__main__":
     fig, insight = plot_total_money_vs_day()
     print(insight)

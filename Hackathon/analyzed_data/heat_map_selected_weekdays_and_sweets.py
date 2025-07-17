@@ -1,8 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
-CLEANED_DATA_PATH = r"C:\learning\sic_pu_june25\Hackathon\data\clean_data.csv"
+# Use relative path
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CLEANED_DATA_PATH = os.path.join(BASE_DIR, '..', 'data', 'clean_data.csv')
 
 def plot_heatmap_for_weekdays(selected_days):
     df = pd.read_csv(CLEANED_DATA_PATH)
@@ -21,7 +24,7 @@ def plot_heatmap_for_weekdays(selected_days):
     # Group by 'day of week' and sum sweet quantities
     heatmap_data = df_filtered.groupby('day of week')[sweet_columns].sum()
 
-    # Reorder the days as per user input
+    # Reorder rows to match selected_days order
     heatmap_data = heatmap_data.reindex(selected_days)
 
     # Plot heatmap

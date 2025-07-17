@@ -2,14 +2,20 @@ import tkinter as tk
 from tkinter import messagebox, simpledialog
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import tkinter.font as tkfont
+import os
+import sys
+
+# Ensure relative import works from any location
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(CURRENT_DIR, "analyzed_data"))
 
 # Import graph functions (return fig, insight)
-from analyzed_data.bar_chart_total_money_vs_day import plot_total_money_vs_day
-from analyzed_data.bar_chart_total_sale_quantitiy_vs_day import plot_total_quantity_vs_day
-from analyzed_data.horizontal_bar_chart_top5 import plot_top5_sweets
-from analyzed_data.bar_chart_least5 import plot_least5_sweets
-from analyzed_data.pie_chart_of_selected_weekday_sale_of_sweets import plot_pie_chart_for_weekday
-from analyzed_data.heat_map_selected_weekdays_and_sweets import plot_heatmap_for_weekdays
+from bar_chart_total_money_vs_day import plot_total_money_vs_day
+from bar_chart_total_sale_quantitiy_vs_day import plot_total_quantity_vs_day
+from horizontal_bar_chart_top5 import plot_top5_sweets
+from bar_chart_least5 import plot_least5_sweets
+from pie_chart_of_selected_weekday_sale_of_sweets import plot_pie_chart_for_weekday
+from heat_map_selected_weekdays_and_sweets import plot_heatmap_for_weekdays
 
 
 class KantiSweetsApp:

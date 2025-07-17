@@ -1,8 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
-CLEANED_DATA_PATH = r"C:\learning\sic_pu_june25\Hackathon\data\clean_data.csv"
+# Automatically resolve path to clean_data.csv
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CLEANED_DATA_PATH = os.path.join(BASE_DIR, '..', 'data', 'clean_data.csv')
 
 def plot_least5_sweets():
     df = pd.read_csv(CLEANED_DATA_PATH)
@@ -23,14 +26,14 @@ def plot_least5_sweets():
     plt.tight_layout()
     fig = plt.gcf()
 
-    # Insight
+    # Insight generation
     least_item = total_sold.index[0]
     least_qty = total_sold.iloc[0]
-    insight = f"The least sold sweet is {least_item} with only {int(least_qty)} units sold, so we can remove this item"
+    insight = f"🧾 Insight: '{least_item}' is the least sold sweet with only {int(least_qty)} units sold. You may consider removing it from the menu."
 
     return fig, insight
 
-# For testing
+# For direct testing
 if __name__ == "__main__":
     fig, insight = plot_least5_sweets()
     print(insight)

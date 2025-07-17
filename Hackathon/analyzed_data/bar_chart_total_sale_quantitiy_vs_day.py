@@ -1,8 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
-CLEANED_DATA_PATH = r"C:\learning\sic_pu_june25\Hackathon\data\clean_data.csv"
+# Use relative path for portability
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CLEANED_DATA_PATH = os.path.join(BASE_DIR, '..', 'data', 'clean_data.csv')
 
 def plot_total_quantity_vs_day():
     df = pd.read_csv(CLEANED_DATA_PATH)
@@ -11,8 +14,10 @@ def plot_total_quantity_vs_day():
     exclude_columns = ['total', 'day of week']
     sweet_columns = [col for col in df.columns if col not in exclude_columns]
 
-    # Sum all sweet quantities per row, then group by day
+    # Sum quantity across sweet columns per row
     df['total_quantity'] = df[sweet_columns].sum(axis=1)
+
+    # Group by day of week
     grouped = df.groupby('day of week')['total_quantity'].sum().reindex([
         'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'
     ])
@@ -29,7 +34,7 @@ def plot_total_quantity_vs_day():
     # Insight
     max_day = grouped.idxmax()
     max_qty = grouped.max()
-    insight = f"The highest quantity of sweets was sold on {max_day} ({int(max_qty)} units)."
+    insight = f"📊 Insight: The highest quantity of sweets was sold on {max_day} with {int(max_qty)} units."
 
     return fig, insight
 
