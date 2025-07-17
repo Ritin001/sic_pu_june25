@@ -26,7 +26,7 @@ def plot_least5_sweets():
     # Insight
     least_item = total_sold.index[0]
     least_qty = total_sold.iloc[0]
-    insight = f"The least sold sweet is {least_item} with only {int(least_qty)} units sold."
+    insight = f"The least sold sweet is {least_item} with only {int(least_qty)} units sold, so we can remove this item"
 
     return fig, insight
 
